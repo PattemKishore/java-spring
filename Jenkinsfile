@@ -9,7 +9,7 @@ pipeline {
  
         stage('docker image build ') {
            steps {
-                sh 'docker build -t java-spring-19:v{BUILD_NUMBER} .'
+                sh 'docker build -t java-spring-19:v${BUILD_NUMBER} .'
             }
         }
         stage('docker login ') {
@@ -19,13 +19,13 @@ pipeline {
         }
         stage('docker tagging ') {
            steps {
-                sh 'docker tag java-spring-19:v{BUILD_NUMBER} kishorepattem/devops19:spring-19.{BUILD_NUMBER}'
+                sh 'docker tag java-spring-19:v${BUILD_NUMBER} kishorepattem/devops19:spring-19.${BUILD_NUMBER}'
  
            }
         }
         stage('image push dockerhub') {
            steps{
-                sh 'docker push kishorepattem/devops19:spring-19.{BUILD_NUMBER}'
+                sh 'docker push kishorepattem/devops19:spring-19.${BUILD_NUMBER}'
            }
          }
         stage('push ECR'){
