@@ -19,7 +19,7 @@ pipeline {
         }
         stage('docker tagging ') {
            steps {
-                sh 'docker tag java-spring:19:v1 kishorepattem/devops19:spring-19.1'
+                sh 'docker tag java-spring-19:v1 kishorepattem/devops19:spring-19.1'
  
            }
         }
